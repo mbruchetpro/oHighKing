@@ -1,12 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      AuvergneHiking
-    </ion-title>
+    <ion-title>home</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-  </div>
+  <ul>
+    <li *ngFor="let hiking of hikingList">{{hiking.title}}</li>
+  </ul>
 </ion-content>
