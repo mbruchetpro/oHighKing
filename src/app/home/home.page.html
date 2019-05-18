@@ -6,6 +6,17 @@
 
 <ion-content>
   <ul>
-    <li *ngFor="let hiking of hikingList">{{hiking.title}}</li>
+    <li *ngFor="let hiking of hikingList">
+      <a [routerLink]="['/detail', hiking.id]" >{{hiking.title}}</a>
+      <p>
+          "address": {{hiking.address}},<br/>
+          "description": {{hiking.description}},<br/>
+          "difficultyRating": {{hiking.difficultyRating}},<br/>
+          "duration": {{hiking.duration}},<br/>
+          "lengthMeters": {{hiking.lengthMeters}},<br/>
+          "steps": {{hiking.steps}},<br/>
+          "idCreator": {{hiking.idCreator}}
+      </p>
+    </li>
   </ul>
 </ion-content>

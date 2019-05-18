@@ -6,6 +6,12 @@ export interface IHiking {
   difficultyRating: number;
   duration: number;
   lengthMeters: number;
-  steps: any; // Todo : Mettre interface Step
+  steps: IStep[];
   idCreator: string;
+}
+
+export interface IStep {
+  id: number;
+  x: number;
+  y: number;
 }
