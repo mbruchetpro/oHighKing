@@ -1,0 +1,41 @@
+.ContainerLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    // width: 400px;
+    // height: 200px;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2vh 6vw;
+    margin-top: 2vh;
+    
+    div {
+      margin-right: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+
+      input {
+        border-radius: 7%;
+        height: 50px;
+      }
+    }
+    
+    .button {
+      margin-right: 0px;
+      flex-basis: 65%;
+      margin-top: 2vh;
+    }
+
+    a {
+      justify-self: center;
+    }
+  }
+}
