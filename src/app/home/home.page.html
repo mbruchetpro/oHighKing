@@ -1,22 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ul>
-    <li *ngFor="let hiking of hikingList">
-      <a [routerLink]="['/detail', hiking.id]" >{{hiking.title}}</a>
-      <p>
-          "address": {{hiking.address}},<br/>
-          "description": {{hiking.description}},<br/>
-          "difficultyRating": {{hiking.difficultyRating}},<br/>
-          "duration": {{hiking.duration}},<br/>
-          "lengthMeters": {{hiking.lengthMeters}},<br/>
-          "steps": {{hiking.steps}},<br/>
-          "idCreator": {{hiking.idCreator}}
-      </p>
-    </li>
-  </ul>
+    <ul>
+        <li *ngFor="let hiking of hikingList">
+            <a [routerLink]="['/detail', hiking.id]" >{{hiking.title}}</a>
+            <p>
+                "address": {{hiking.address}},<br/>
+                "difficultyRating": {{hiking.difficultyRating}},<br/>
+                "duration": {{hiking.duration}},<br/>
+                "lengthMeters": {{hiking.lengthMeters}}
+            </p>
+        </li>
+    </ul>
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-title>home</ion-title>
+    </ion-toolbar>
+</ion-footer>

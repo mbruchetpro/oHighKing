@@ -1,9 +1,20 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>detail</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <h1>{{hiking.title}}</h1>
+    <ion-text>
+        "address": {{hiking.address}},<br/>
+        "description": {{hiking.description}},<br/>
+        "difficultyRating": {{hiking.difficultyRating}},<br/>
+        "duration": {{hiking.duration}},<br/>
+        "lengthMeters": {{hiking.lengthMeters}},<br/>
+        "steps": {{hiking.steps}},<br/>
+        "idCreator": {{hiking.idCreator}}
+    </ion-text>
+    <app-list-step [hiking]="hiking"></app-list-step>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <ion-button color="dark" size="small" (click)='goToBack()'>Retour</ion-button>
+      <ion-button [routerLink]="['/hiking', hiking.id]" color="primary">Voir la randonnée en cours</ion-button>
+  </ion-toolbar>
+</ion-footer>

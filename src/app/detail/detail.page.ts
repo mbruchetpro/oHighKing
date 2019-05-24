@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IHiking } from '../home/home.definition';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { HikingService } from '../services/hiking.service';
+import {IHiking} from '../home/home.definition';
 
 @Component({
   selector: 'app-detail',
@@ -11,21 +11,23 @@ import { HikingService } from '../services/hiking.service';
 })
 export class DetailPage implements OnInit {
 
-  hiking: any;
+  hiking: IHiking;
 
-  constructor( 
+  constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: HikingService
-  ) { 
+    private hikingService: HikingService
+  ) {
   }
 
   ngOnInit() {
     this.route.paramMap.pipe(
-      switchMap((params: ParamMap )=> this.service.getHiking(params.get('id')))
+      switchMap((params: ParamMap ) => this.hikingService.getHiking(params.get('id')))
     ).subscribe((hiking) => this.hiking = hiking);
-    
-    console.log(this.hiking);
+  }
+
+  goToBack() {
+    history.back();
   }
 
 }
