@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-import { DetailPage } from './detail.page';
+
+import { HikingPage } from './hiking.page';
 import {ListStepModule} from '../list-step/list-step.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: DetailPage
+    component: HikingPage
   }
 ];
 
@@ -22,6 +23,6 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         ListStepModule,
     ],
-  declarations: [DetailPage]
+    declarations: [HikingPage]
 })
-export class DetailPageModule {}
+export class HikingPageModule {}

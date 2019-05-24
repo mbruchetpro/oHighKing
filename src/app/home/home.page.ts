@@ -9,7 +9,7 @@ import { IHiking } from './home.definition';
 export class HomePage implements OnInit {
   hikingList: IHiking[];
 
-  constructor() { 
+  constructor() {
     this.hikingList = [
       {
         id: "ldejfoej",
