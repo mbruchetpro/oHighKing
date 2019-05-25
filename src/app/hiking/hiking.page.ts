@@ -25,10 +25,6 @@ export class HikingPage implements OnInit {
     ).subscribe((hiking) => this.hiking = hiking);
   }
 
-  goToBack() {
-    history.back();
-  }
-
   finishHiking() {
     console.log(this.hiking);
   }
