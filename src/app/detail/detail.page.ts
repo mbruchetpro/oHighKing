@@ -26,8 +26,4 @@ export class DetailPage implements OnInit {
     ).subscribe((hiking) => this.hiking = hiking);
   }
 
-  goToBack() {
-    history.back();
-  }
-
 }

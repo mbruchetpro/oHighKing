@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { DetailPage } from './detail.page';
 import {ListStepModule} from '../list-step/list-step.module';
+import {HikingStatusBarModule} from '../hiking-status-bar/hiking-status-bar.module';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         ListStepModule,
+        HikingStatusBarModule,
     ],
   declarations: [DetailPage]
 })

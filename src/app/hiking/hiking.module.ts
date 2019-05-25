@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { HikingPage } from './hiking.page';
 import {ListStepModule} from '../list-step/list-step.module';
+import {HikingStatusBarModule} from '../hiking-status-bar/hiking-status-bar.module';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes),
         ListStepModule,
+        HikingStatusBarModule,
     ],
     declarations: [HikingPage]
 })

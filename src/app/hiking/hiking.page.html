@@ -4,8 +4,4 @@
     <ion-button color="primary" (click)='finishHiking()'>Terminé</ion-button>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-button color="dark" size="small" (click)='goToBack()'>Retour</ion-button>
-  </ion-toolbar>
-</ion-footer>
+<app-hiking-status-bar [pageName]="'hiking'"></app-hiking-status-bar>

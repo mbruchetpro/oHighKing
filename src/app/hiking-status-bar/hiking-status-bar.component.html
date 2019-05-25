@@ -1,0 +1,9 @@
+<ion-footer>
+  <ion-toolbar class="ion-align-items-center ion-justify-content-center">
+    <ion-title *ngIf="pageName === 'home'" class="ion-text-center">o'High ⛰ King</ion-title>
+    <ion-button *ngIf="isHikingInProgress()" [routerLink]="['/hiking', getHikingInProgress().id]" color="primary">Voir la randonnée en cours</ion-button>
+    <!---->
+    <ion-button *ngIf="pageName !== 'home'" (click)='goToBack()'
+                color="dark">Retour</ion-button>
+  </ion-toolbar>
+</ion-footer>
