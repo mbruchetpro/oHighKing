@@ -6,6 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { DetailPage } from './detail.page';
 import {ListStepModule} from '../list-step/list-step.module';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { LoginService } from '../services/login.service';
 
 const routes: Routes = [
   {
@@ -16,11 +19,16 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        RouterModule.forChild(routes),
-        ListStepModule,
+      CommonModule,
+      FormsModule,
+      IonicModule,
+      RouterModule.forChild(routes),
+      ListStepModule,
+      HttpClientModule,
+      HttpModule,
+    ],
+    providers: [
+      LoginService
     ],
   declarations: [DetailPage]
 })

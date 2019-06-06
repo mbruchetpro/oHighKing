@@ -1,4 +1,4 @@
-<!-- <ion-header><
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>login</ion-title>
   </ion-toolbar>
@@ -25,6 +25,7 @@
       <div class="button">
         <ion-button type="sumbit" value="submit" expand="block">Log in</ion-button>
       </div>
+      <span *ngIf="error">{{error}}</span>
     </form>
     <a href="#">Sign up</a>
   </div>

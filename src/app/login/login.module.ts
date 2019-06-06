@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-import { HTTP } from '@ionic-native/http/ngx';
 
 import { LoginPage } from './login.page';
+import { LoginService } from '../services/login.service';
 
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
@@ -20,12 +20,15 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
     HttpClientModule,
     HttpModule,
+  ],
+  providers: [
+    LoginService
   ],
   declarations: [LoginPage]
 })
