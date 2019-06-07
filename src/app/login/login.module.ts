@@ -4,33 +4,32 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-import { HikingStatusBarModule } from '../hiking-status-bar/hiking-status-bar.module';
-import { HomePage } from './home.page';
 
+import { LoginPage } from './login.page';
 import { LoginService } from '../services/login.service';
+
+import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: LoginPage
   }
 ];
 
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
     HttpClientModule,
     HttpModule,
-    HikingStatusBarModule
   ],
   providers: [
     LoginService
   ],
-  declarations: [HomePage]
+  declarations: [LoginPage]
 })
-export class HomePageModule {}
+export class LoginPageModule {}

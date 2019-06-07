@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IHiking } from './home.definition';
+import { LoginService } from '../services/login.service';
+import { IUser } from '../models/user.definitions';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +12,9 @@ import { IHiking } from './home.definition';
 })
 export class HomePage implements OnInit {
   hikingList: IHiking[];
+  user: IUser;
 
-  constructor() {
+  constructor(private loginService: LoginService, private router: Router) {
     this.hikingList = [
       {
         id: "ldejfoej",
@@ -37,6 +42,11 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    this.loginService.checkUser().subscribe((result: IUser) => this.user = result);
+
+    if (!this.user) {
+      this.router.navigate(["/login"]);
+    }
   }
 
 }

@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { HikingPage } from './hiking.page';
 import {ListStepModule} from '../list-step/list-step.module';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { LoginService } from '../services/login.service';
 import {HikingStatusBarModule} from '../hiking-status-bar/hiking-status-bar.module';
 
 const routes: Routes = [
@@ -18,12 +21,17 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        RouterModule.forChild(routes),
-        ListStepModule,
+      CommonModule,
+      FormsModule,
+      IonicModule,
+      RouterModule.forChild(routes),
+      ListStepModule,
+      HttpClientModule,
+      HttpModule,
         HikingStatusBarModule,
+    ],
+    providers: [
+      LoginService
     ],
     declarations: [HikingPage]
 })
