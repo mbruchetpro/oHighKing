@@ -36,7 +36,7 @@ export class HikingPage implements OnInit {
   }
 
   finishHiking() {
-    console.log(this.hiking);
+    localStorage.removeItem('ohighking_hiking-in-progress');
   }
 
 }

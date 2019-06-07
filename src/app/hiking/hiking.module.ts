@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { LoginService } from '../services/login.service';
 import {HikingStatusBarModule} from '../hiking-status-bar/hiking-status-bar.module';
+import {OpenStreetMapModule} from '../open-street-map/open-street-map.module';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
       HttpClientModule,
       HttpModule,
         HikingStatusBarModule,
+        OpenStreetMapModule,
     ],
     providers: [
       LoginService

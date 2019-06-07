@@ -35,4 +35,8 @@ export class DetailPage implements OnInit {
     ).subscribe((hiking) => this.hiking = hiking);
   }
 
+  setHikingInProgess() {
+    localStorage.setItem('ohighking_hiking-in-progress', JSON.stringify(this.hiking));
+  }
+
 }
