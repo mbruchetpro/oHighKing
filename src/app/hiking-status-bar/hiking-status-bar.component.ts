@@ -22,10 +22,6 @@ export class HikingStatusBarComponent implements OnInit {
     return this.getHikingInProgress() !== undefined && this.getHikingInProgress() !== null;
   }
 
-  setHikingInProgess(hiking: IHiking) {
-    localStorage.setItem('ohighking_hiking-in-progress', JSON.stringify(hiking));
-  }
-
   getHikingInProgress() {
     const hikingInProgess: IHiking = JSON.parse(localStorage.getItem('ohighking_hiking-in-progress'));
     return hikingInProgess;
