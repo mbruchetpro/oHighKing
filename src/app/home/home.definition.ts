@@ -8,6 +8,7 @@ export interface IHiking {
   lengthMeters: number;
   steps: IStep[];
   idCreator: string;
+  picture: string;
 }
 
 export interface IStep {
