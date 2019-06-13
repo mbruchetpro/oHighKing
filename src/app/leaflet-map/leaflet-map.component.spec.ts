@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OpenStreetMapComponent } from './open-street-map.component';
+import { LeafletMapComponent } from './leaflet-map.component';
 
-describe('OpenStreetMapComponent', () => {
-  let component: OpenStreetMapComponent;
-  let fixture: ComponentFixture<OpenStreetMapComponent>;
+describe('LeafletMapComponent', () => {
+  let component: LeafletMapComponent;
+  let fixture: ComponentFixture<LeafletMapComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OpenStreetMapComponent ],
+      declarations: [ LeafletMapComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OpenStreetMapComponent);
+    fixture = TestBed.createComponent(LeafletMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

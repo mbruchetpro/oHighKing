@@ -1,4 +1,5 @@
 <ion-content>
+
     <ion-img [src]="'http://www.optimisatrice.fr/wp-content/uploads/2018/07/le-canyon-de-la-riviere-blyde-en-afrique-du-sud.jpg'" [alt]="'hiking-img'"></ion-img>
     <ion-title>{{hiking.title}}</ion-title>
 
@@ -12,6 +13,7 @@
         "idCreator": {{hiking.idCreator}}<br/>
     </ion-text>
     <ion-button (click)='setHikingInProgess()'>Start</ion-button>
+    <app-leaflet-map></app-leaflet-map>
     <app-list-step [hiking]="hiking"></app-list-step>
 </ion-content>
 

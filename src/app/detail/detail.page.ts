@@ -15,7 +15,7 @@ export class DetailPage implements OnInit {
 
   hiking: IHiking;
   user: IUser;
-  
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -28,8 +28,9 @@ export class DetailPage implements OnInit {
     this.loginService.checkUser().subscribe((result: IUser) => this.user = result);
 
     if (!this.user) {
-      this.router.navigate(["/login"]);
+      this.router.navigate(['/login']);
     }
+
     this.route.paramMap.pipe(
       switchMap((params: ParamMap ) => this.hikingService.getHiking(params.get('id')))
     ).subscribe((hiking) => this.hiking = hiking);
