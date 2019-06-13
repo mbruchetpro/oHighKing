@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { LoginService } from '../services/login.service';
 import {HikingStatusBarModule} from '../hiking-status-bar/hiking-status-bar.module';
-import {OpenStreetMapModule} from '../open-street-map/open-street-map.module';
+import {LeafletMapModule} from '../leaflet-map/leaflet-map.module';
 
 const routes: Routes = [
   {
@@ -22,15 +22,15 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-      CommonModule,
-      FormsModule,
-      IonicModule,
-      RouterModule.forChild(routes),
-      ListStepModule,
-      HttpClientModule,
-      HttpModule,
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        ListStepModule,
+        HttpClientModule,
+        HttpModule,
         HikingStatusBarModule,
-        OpenStreetMapModule,
+        LeafletMapModule,
     ],
     providers: [
       LoginService

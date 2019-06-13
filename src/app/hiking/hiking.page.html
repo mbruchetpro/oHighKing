@@ -1,5 +1,5 @@
 <ion-content>
-    <app-open-street-map></app-open-street-map>
+    <app-leaflet-map [pageName]="'hiking'" [hiking]="hiking"></app-leaflet-map>
     <app-list-step [hiking]="hiking"></app-list-step>
     <ion-button color="primary" (click)='finishHiking()'>Terminé</ion-button>
 </ion-content>

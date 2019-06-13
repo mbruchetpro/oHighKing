@@ -12,6 +12,6 @@ export interface IHiking {
 
 export interface IStep {
   id: number;
-  x: number;
-  y: number;
+  latitude: number;
+  longitude: number;
 }

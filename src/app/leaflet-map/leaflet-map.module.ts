@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
+import { LeafletMapComponent} from './leaflet-map.component';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import {OpenStreetMapComponent} from './open-street-map.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
-        OpenStreetMapComponent
+        LeafletMapComponent
     ],
     imports: [
         IonicModule,
-        CommonModule
+        CommonModule,
+        RouterModule
     ],
     exports: [
-        OpenStreetMapComponent
+        LeafletMapComponent
     ]
 })
-export class OpenStreetMapModule {}
+export class LeafletMapModule {}

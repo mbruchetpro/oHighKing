@@ -3,7 +3,8 @@ import { IHiking } from './home.definition';
 import { LoginService } from '../services/login.service';
 import { IUser } from '../models/user.definitions';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import {HikingService} from '../services/hiking.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -14,39 +15,14 @@ export class HomePage implements OnInit {
   hikingList: IHiking[];
   user: IUser;
 
-  constructor(private loginService: LoginService, private router: Router) {
-    this.hikingList = [
-      {
-        id: "ldejfoej",
-        title: "Puy de dôme",
-        address: "lore",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-        difficultyRating: 4,
-        duration: 3,
-        lengthMeters: 10,
-        steps: [], // Todo : Mettre interface Step
-        idCreator: "ofjof",
-      },
-      {
-        id: "deede",
-        title: "Puy de la vache",
-        address: "rue de la vache",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-        difficultyRating: 5,
-        duration: 6,
-        lengthMeters: 60,
-        steps: [], // Todo : Mettre interface Step
-        idCreator: "ofjof",
-      },
-    ];
-  }
+  constructor(private loginService: LoginService, private hikingService: HikingService, private router: Router) {}
 
   ngOnInit() {
     this.loginService.checkUser().subscribe((result: IUser) => this.user = result);
-
     if (!this.user) {
-      this.router.navigate(["/login"]);
+      this.router.navigate(['/login']);
     }
+    this.hikingService.getHikings().subscribe((hikingList: IHiking[]) => this.hikingList = hikingList);
   }
 
 }
