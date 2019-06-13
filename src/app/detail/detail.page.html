@@ -13,7 +13,7 @@
         "idCreator": {{hiking.idCreator}}<br/>
     </ion-text>
     <ion-button (click)='setHikingInProgess()'>Start</ion-button>
-    <app-leaflet-map></app-leaflet-map>
+    <app-leaflet-map [pageName]="'detail'" [hiking]="hiking"></app-leaflet-map>
     <app-list-step [hiking]="hiking"></app-list-step>
 </ion-content>
 
