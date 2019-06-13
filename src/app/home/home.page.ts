@@ -3,7 +3,6 @@ import { IHiking } from './home.definition';
 import { LoginService } from '../services/login.service';
 import { IUser } from '../models/user.definitions';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class HomePage implements OnInit {
   hikingList: IHiking[];
   user: IUser;
+  rate: [];
 
   constructor(private loginService: LoginService, private router: Router) {
     this.hikingList = [
@@ -41,6 +41,8 @@ export class HomePage implements OnInit {
         picture: "puy-de-la-vache.jpg"
       },
     ];
+
+
   }
 
   ngOnInit() {
