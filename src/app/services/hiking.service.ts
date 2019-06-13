@@ -22,18 +22,18 @@ export class HikingService {
         steps: [
           {
             id: 0,
-            longitude: 150.5420,
-            latitude: 126.9053
+            longitude: 3.086948,
+            latitude: 45.77996
           },
           {
             id: 1,
-            longitude: 110.5420,
-            latitude: 398.3003
+            longitude: 3.021607,
+            latitude: 45.781336
           },
           {
-            id: 3,
-            longitude: 180.5420,
-            latitude: 91.9053
+            id: 2,
+            longitude: 2.963762,
+            latitude: 45.771927
           }
         ], // Todo : Mettre interface Step
         idCreator: 'ofjof',
@@ -50,19 +50,19 @@ export class HikingService {
         steps: [
           {
             id: 0,
-            longitude: 150.5420,
-            latitude: 126.9053
+            longitude: 3.087081,
+            latitude: 45.746768
           },
           {
             id: 1,
-            longitude: 110.5420,
-            latitude: 398.3003
+            longitude: 3.0043,
+            latitude: 45.7039
           },
           {
-            id: 3,
-            longitude: 180.5420,
-            latitude: 91.9053
-          }
+            id: 2,
+            longitude: 2.962887,
+            latitude: 45.701996
+          },
         ], // Todo : Mettre interface Step
         idCreator: 'ofjof',
       },

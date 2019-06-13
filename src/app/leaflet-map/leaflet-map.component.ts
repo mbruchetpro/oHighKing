@@ -19,11 +19,21 @@ export class LeafletMapComponent implements OnInit {
 
   initLeafletMap() {
     // @ts-ignore
-    const mymap = L.map('map' + this.pageName).setView([45.77, 3.08], 13);
+    const map = L.map('map' + this.pageName).setView([this.hiking.steps[0].latitude, this.hiking.steps[0].longitude], 10);
     // @ts-ignore
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(mymap);
+    }).addTo(map);
+
+    const hikingStep = this.hiking.steps.map(step => [step.latitude, step.longitude]);
+
+    // @ts-ignore
+    const controls = L.Routing.control({
+      waypoints: hikingStep,
+      show: false
+    }).addTo(map);
+    // @ts-ignore
+    // this.hiking.steps.map((step) => L.marker([step.latitude, step.longitude]).addTo(mymap));
   }
 
 }
