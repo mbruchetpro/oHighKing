@@ -14,6 +14,7 @@ import {Observable} from 'rxjs';
 export class HomePage implements OnInit {
   hikingList: IHiking[];
   user: IUser;
+  rate: [];
 
   constructor(private loginService: LoginService, private hikingService: HikingService, private router: Router) {}
 

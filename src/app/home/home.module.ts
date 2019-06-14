@@ -20,13 +20,13 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
     HttpClientModule,
     HttpModule,
-    HikingStatusBarModule
+    HikingStatusBarModule,
   ],
   providers: [
     LoginService
