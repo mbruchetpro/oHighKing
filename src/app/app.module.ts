@@ -9,7 +9,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP } from '@ionic-native/http/ngx';
-import {Geolocation} from '@ionic-native/geolocation/ngx';
 
 
 @NgModule({
@@ -17,7 +16,7 @@ import {Geolocation} from '@ionic-native/geolocation/ngx';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot(), 
     AppRoutingModule,
   ],
   providers: [
@@ -25,7 +24,6 @@ import {Geolocation} from '@ionic-native/geolocation/ngx';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     HTTP,
-    Geolocation
   ],
   bootstrap: [AppComponent]
 })

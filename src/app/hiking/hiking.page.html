@@ -1,12 +1,7 @@
 <ion-content>
-    <div *ngIf="!chargement">
-        <app-leaflet-map [pageName]="'hiking'" [hiking]="hiking" [currentPosition]="currentPosition"></app-leaflet-map>
-        <app-list-step [hiking]="hiking"></app-list-step>
-        <ion-button color="primary" (click)='finishHiking()'>Terminé</ion-button>
-    </div>
-    <div *ngIf="chargement" id="chargement">
-        <ion-spinner name="crescent"></ion-spinner>
-        <ion-text class="ion-text-center">⛰ Récupération des données de géolocalisation. Merci de patienter ... </ion-text>
-    </div>
+    <app-leaflet-map [pageName]="'hiking'" [hiking]="hiking"></app-leaflet-map>
+    <app-list-step [hiking]="hiking"></app-list-step>
+    <ion-button color="primary" (click)='finishHiking()'>Terminé</ion-button>
 </ion-content>
+
 <app-hiking-status-bar [pageName]="'hiking'"></app-hiking-status-bar>

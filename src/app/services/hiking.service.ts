@@ -37,7 +37,7 @@ export class HikingService {
           }
         ], // Todo : Mettre interface Step
         idCreator: 'ofjof',
-        picture: 'puy-de-dome.jpg',
+        picture: "puy-de-dome.jpg",
       },
       {
         id: 'deede',
@@ -66,7 +66,7 @@ export class HikingService {
           },
         ], // Todo : Mettre interface Step
         idCreator: 'ofjof',
-        picture: 'puy-de-la-vache.jpg'
+        picture: "puy-de-la-vache.jpg"
       },
     ];
   }

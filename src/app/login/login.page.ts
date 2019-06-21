@@ -16,16 +16,16 @@ export class LoginPage implements OnInit {
   private password: string;
   private users: IUser[];
   private currentUser: IUser;
-  error: string | undefined;
+  private error: string;
 
-  constructor(private http: HttpClient, private loginService: LoginService, private router: Router) {
-    this.username = '';
-    this.password = '';
-    this.error = '';
+  constructor(private http: HttpClient, private loginService: LoginService, private router: Router) { 
+    this.username = "";
+    this.password = "";
+    this.error = "";
   }
 
   async _handleLogin(login: NgForm) {
-    console.log('🚨 Attention un login !!');
+    console.info("🚨 Attention un login !!");
     // Value of login :
     this.username = login.value.username;
     this.password = login.value.password;
@@ -36,15 +36,15 @@ export class LoginPage implements OnInit {
     );
 
     if (this.currentUser) {
-      localStorage.setItem('ohighking_currentuser', JSON.stringify(this.currentUser));
-      this.router.navigate(['/home']);
+      localStorage.setItem("ohighking_currentuser", JSON.stringify(this.currentUser));
+      this.router.navigate(["/home"]);
     } else {
-      this.error = 'Mauvaise combinaison de login et de mot de passe';
+      this.error = "Mauvaise combinaison de login et de mot de passe";
     }
   }
 
   ngOnInit() {
-    localStorage.removeItem('ohighking_currentuser');
+    localStorage.removeItem("ohighking_currentuser");
     this.loginService.getUsers().subscribe((result: any) => this.users = result.users);
   }
 
