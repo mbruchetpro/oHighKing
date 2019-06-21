@@ -10,6 +10,7 @@ export class LeafletMapComponent implements OnInit {
 
   @Input() pageName: string;
   @Input() hiking: IHiking;
+  @Input() currentPosition: [number, number] | undefined;
 
   constructor() { }
 
@@ -24,16 +25,18 @@ export class LeafletMapComponent implements OnInit {
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-
-    const hikingStep = this.hiking.steps.map(step => [step.latitude, step.longitude]);
-
     // @ts-ignore
-    const controls = L.Routing.control({
-      waypoints: hikingStep,
+    L.Routing.control({
+      waypoints: this.hiking.steps.map(step => [step.latitude, step.longitude]),
       show: false
     }).addTo(map);
-    // @ts-ignore
-    // this.hiking.steps.map((step) => L.marker([step.latitude, step.longitude]).addTo(mymap));
+    console.log(this.currentPosition);
+    if (this.currentPosition !== undefined) {
+     // @ts-ignore
+     L.marker(this.currentPosition).addTo(map);
+    }
   }
-
 }
+
+
+// map.locate({setView: true, watch: true, maxZoom: 8});
