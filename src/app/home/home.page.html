@@ -1,16 +1,4 @@
 <ion-content>
-    <!-- <ul>
-        <li *ngFor="let hiking of hikingList">
-            <a [routerLink]="['/detail', hiking.id]" >{{hiking.title}}</a>
-            <p>
-                "address": {{hiking.address}},<br/>
-                "difficultyRating": {{hiking.difficultyRating}},<br/>
-                "duration": {{hiking.duration}},<br/>
-                "lengthMeters": {{hiking.lengthMeters}}
-            </p>
-        </li>
-    </ul> -->
-
     <ion-card *ngFor="let hiking of hikingList" [routerLink]="['/detail', hiking.id]">
         <ion-img [src]="'/assets/icon/' + hiking.picture" [alt]="'hiking-img'"></ion-img>
         
@@ -29,12 +17,12 @@
             </ion-chip>
             <ion-chip>
                 <ion-label> 
-                    <ion-icon name="stopwatch"></ion-icon> {{hiking.duration}} minutes
+                    <ion-icon name="stopwatch"></ion-icon> {{hiking.duration}} min
                 </ion-label>
             </ion-chip>
             <ion-chip>
                 <ion-label>
-                    <ion-icon name="walk"></ion-icon> {{hiking.lengthMeters}} meters
+                    <ion-icon name="walk"></ion-icon> {{hiking.lengthMeters}} m
                 </ion-label>
             </ion-chip>
         </div>

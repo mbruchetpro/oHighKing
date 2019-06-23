@@ -45,6 +45,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     localStorage.removeItem("ohighking_currentuser");
+    localStorage.removeItem('ohighking_hiking-in-progress');
     this.loginService.getUsers().subscribe((result: any) => this.users = result.users);
   }
 

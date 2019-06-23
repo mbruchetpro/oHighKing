@@ -15,6 +15,7 @@ export class DetailPage implements OnInit {
 
   hiking: IHiking;
   user: IUser;
+  status: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,14 +23,23 @@ export class DetailPage implements OnInit {
     private hikingService: HikingService,
     private loginService: LoginService,
   ) {
+    this.status = true;
   }
 
   ngOnInit() {
+    console.log("init detail")
     this.loginService.checkUser().subscribe((result: IUser) => this.user = result);
 
     if (!this.user) {
       this.router.navigate(['/login']);
     }
+
+    if (localStorage.getItem('ohighking_hiking-in-progress')) {
+      this.status = true;
+
+    }
+
+    this.hikingService.statusHiking.subscribe( (sub) => this.status = sub);
 
     this.route.paramMap.pipe(
       switchMap((params: ParamMap ) => this.hikingService.getHiking(params.get('id')))
@@ -37,7 +47,11 @@ export class DetailPage implements OnInit {
   }
 
   setHikingInProgess() {
-    localStorage.setItem('ohighking_hiking-in-progress', JSON.stringify(this.hiking));
+    this.hikingService.setHikingInProgess(this.hiking);
   }
-
+  
+  finishHiking() {
+    this.hikingService.finishHiking();
+  }
+  
 }

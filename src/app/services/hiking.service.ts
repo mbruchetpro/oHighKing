@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { IHiking } from '../home/home.definition';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HikingService {
   hikingList: IHiking[];
+  statusHiking: Subject<boolean> = new Subject();
 
   constructor() {
     this.hikingList = [
@@ -17,7 +18,7 @@ export class HikingService {
         // tslint:disable-next-line:max-line-length
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
         difficultyRating: 4,
-        duration: 3,
+        duration: 275,
         lengthMeters: 10,
         steps: [
           {
@@ -78,5 +79,24 @@ export class HikingService {
 
   getHikings(): Observable<IHiking[]> {
     return of(this.hikingList);
+  }
+
+  setHikingInProgess(hiking: IHiking) {
+    localStorage.setItem('ohighking_hiking-in-progress', JSON.stringify(hiking));
+    this.statusHiking.next(false);
+  }
+
+  isHikingInProgress() {
+    return this.getHikingInProgress() !== undefined && this.getHikingInProgress() !== null;
+  }
+
+  getHikingInProgress() {
+    const hikingInProgess: IHiking = JSON.parse(localStorage.getItem('ohighking_hiking-in-progress'));
+    return hikingInProgess;
+  }
+
+  finishHiking() {
+    localStorage.removeItem('ohighking_hiking-in-progress');
+    this.statusHiking.next( true);
   }
 }
