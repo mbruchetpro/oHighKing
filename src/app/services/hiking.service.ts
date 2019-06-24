@@ -82,6 +82,9 @@ export class HikingService {
   }
 
   setHikingInProgess(hiking: IHiking) {
+    if (this.getHikingInProgress) {
+      this.finishHiking();
+    }
     localStorage.setItem('ohighking_hiking-in-progress', JSON.stringify(hiking));
     this.statusHiking.next(false);
   }

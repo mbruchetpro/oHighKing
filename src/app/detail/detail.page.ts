@@ -22,21 +22,14 @@ export class DetailPage implements OnInit {
     private router: Router,
     private hikingService: HikingService,
     private loginService: LoginService,
-  ) {
-    this.status = true;
-  }
+  ) {}
 
   ngOnInit() {
-    console.log("init detail")
+    console.log("init detail");
     this.loginService.checkUser().subscribe((result: IUser) => this.user = result);
 
     if (!this.user) {
       this.router.navigate(['/login']);
-    }
-
-    if (localStorage.getItem('ohighking_hiking-in-progress')) {
-      this.status = true;
-
     }
 
     this.hikingService.statusHiking.subscribe( (sub) => this.status = sub);

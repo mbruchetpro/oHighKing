@@ -1,0 +1,11 @@
+ion-footer {
+  ion-toolbar {
+    --background: #5cb85c;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

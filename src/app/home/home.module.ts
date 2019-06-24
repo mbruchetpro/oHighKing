@@ -10,6 +10,7 @@ import { HomePage } from './home.page';
 import { LoginService } from '../services/login.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { TimerModule } from '../timer/timer.module';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
     HttpClientModule,
     HttpModule,
     HikingStatusBarModule,
+    TimerModule,
   ],
   providers: [
     LoginService

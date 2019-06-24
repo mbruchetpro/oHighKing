@@ -1,7 +1,14 @@
 <ion-content>
-    <app-leaflet-map [pageName]="'hiking'" [hiking]="hiking"></app-leaflet-map>
-    <app-list-step [hiking]="hiking"></app-list-step>
-    <ion-button color="primary" (click)='finishHiking()'>Terminé</ion-button>
+    <ion-card class="Map">
+        <app-leaflet-map [pageName]="'hiking'" [hiking]="hiking"></app-leaflet-map>
+    </ion-card>
+    <ion-card class="List">
+        <app-list-step [hiking]="hiking"></app-list-step>
+    </ion-card>
+    <ion-button color="danger" (click)='finishHiking()' class="Stop">
+        <ion-icon name="square"></ion-icon>
+        Stop
+    </ion-button>
 </ion-content>
 
 <app-hiking-status-bar [pageName]="'hiking'"></app-hiking-status-bar>

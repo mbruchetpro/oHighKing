@@ -1,0 +1,22 @@
+<ion-footer *ngIf="pageName !== 'hiking'">
+    <ion-toolbar class="ion-align-items-center ion-justify-content-space-around">
+      <div>
+        <!---->
+        <div>
+          <ion-button color="danger" (click)='finishHiking()' class="Stop">
+              <ion-icon name="square"></ion-icon>
+              Stop
+          </ion-button>
+        </div>
+        <div>
+          <ion-title class="ion-text-center"> 00 : 00 : 00</ion-title>
+        </div>
+        <div>
+          <ion-button *ngIf="isHikingInProgress()" [routerLink]="['/hiking', getHikingInProgress().id]" color="primary">
+            <ion-icon name="eye"></ion-icon> Voir
+          </ion-button>
+        </div>
+      </div>
+    </ion-toolbar>
+</ion-footer>
+  
