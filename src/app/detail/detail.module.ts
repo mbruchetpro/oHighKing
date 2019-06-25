@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { LoginService } from '../services/login.service';
 import {LeafletMapModule} from '../leaflet-map/leaflet-map.module';
+import { TimerModule } from '../timer/timer.module';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
         HttpModule,
         HikingStatusBarModule,
         LeafletMapModule,
+        TimerModule,
     ],
     providers: [
       LoginService

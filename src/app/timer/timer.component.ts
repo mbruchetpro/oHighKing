@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IHiking } from '../home/home.definition';
+import { HikingService } from '../services/hiking.service';
 
 @Component({
   selector: 'app-timer',
@@ -8,13 +10,19 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TimerComponent implements OnInit {
   @Input() pageName: string;
 
-  constructor() { }
+  constructor( private hikingService: HikingService) { }
 
   ngOnInit() {}
 
   isHikingInProgress() {
-    console.log("kferf");
-    return true;
+    return this.hikingService.isHikingInProgress();
   }
 
+  finishHiking() {
+    this.hikingService.finishHiking();
+  }
+
+  getHikingInProgress() {
+    return this.hikingService.getHikingInProgress();
+  }
 }

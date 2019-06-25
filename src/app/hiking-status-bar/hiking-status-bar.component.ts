@@ -17,13 +17,4 @@ export class HikingStatusBarComponent implements OnInit {
   goToBack() {
     history.back();
   }
-
-  isHikingInProgress() {
-    return this.getHikingInProgress() !== undefined && this.getHikingInProgress() !== null;
-  }
-
-  getHikingInProgress() {
-    const hikingInProgess: IHiking = JSON.parse(localStorage.getItem('ohighking_hiking-in-progress'));
-    return hikingInProgess;
-  }
 }

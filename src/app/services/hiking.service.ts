@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { IHiking } from '../home/home.definition';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, of, Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HikingService {
   hikingList: IHiking[];
-  statusHiking: Subject<boolean> = new Subject();
+  statusHiking: Subject<boolean>;
 
   constructor() {
     this.hikingList = [
@@ -70,8 +70,11 @@ export class HikingService {
         picture: "puy-de-la-vache.jpg"
       },
     ];
+    
+    this.statusHiking = new BehaviorSubject(this.getHikingInProgress() !== undefined);
+    this.statusHiking.subscribe( sub =>  console.log( "SERVIIIIIIIIIICE " , sub));
   }
-
+  
   getHiking(id: string): Observable<IHiking> {
     const hiking = this.hikingList.find(hike => hike.id === id);
     return of(hiking);
