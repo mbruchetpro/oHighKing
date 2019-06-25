@@ -4,6 +4,7 @@ import { TimerComponent } from './timer.component';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { HikingService } from '../services/hiking.service';
+import { TimerService } from '../services/timer/timer.service';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HikingService } from '../services/hiking.service';
   ],
   providers: [
     HikingService,
+    TimerService
   ],
   exports: [
     TimerComponent,

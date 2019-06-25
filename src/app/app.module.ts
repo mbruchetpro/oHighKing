@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP } from '@ionic-native/http/ngx';
+import { TimerService } from './services/timer/timer.service';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { HTTP } from '@ionic-native/http/ngx';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     HTTP,
+    TimerService
   ],
   bootstrap: [AppComponent]
 })

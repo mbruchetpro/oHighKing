@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IHiking } from '../home/home.definition';
 import { Observable, of, Subject, BehaviorSubject } from 'rxjs';
+import { TimerService } from './timer/timer.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class HikingService {
   hikingList: IHiking[];
   statusHiking: Subject<boolean>;
 
-  constructor() {
+  constructor(private timerService: TimerService) {
     this.hikingList = [
       {
         id: 'ldejfoej',
@@ -90,6 +91,7 @@ export class HikingService {
     }
     localStorage.setItem('ohighking_hiking-in-progress', JSON.stringify(hiking));
     this.statusHiking.next(false);
+    this.timerService.runTimer();
   }
 
   isHikingInProgress() {
@@ -103,6 +105,7 @@ export class HikingService {
 
   finishHiking() {
     localStorage.removeItem('ohighking_hiking-in-progress');
-    this.statusHiking.next( true);
+    this.statusHiking.next(true);
+    this.timerService.stopTimer();
   }
 }
