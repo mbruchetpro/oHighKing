@@ -25,5 +25,4 @@ export class HomePage implements OnInit {
     }
     this.hikingService.getHikings().subscribe((hikingList: IHiking[]) => this.hikingList = hikingList);
   }
-
 }

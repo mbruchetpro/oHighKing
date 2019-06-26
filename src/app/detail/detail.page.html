@@ -1,20 +1,61 @@
+
 <ion-content>
+    <div class="card-background-page">
+        <ion-card>
+            <ion-img [src]="'/assets/icon/' + hiking.picture" [alt]="'hiking-img'"></ion-img>
+            <div class="card-title">{{hiking.title}}</div>
+        </ion-card>
+    </div>
+    <!-- Detail -->
+    <div class="info">
+        <ion-item class="Star" lines="none" text-center>
+            <ion-label>
+                <span *ngFor="let i of [1,2,3,4,5]">
+                    <ion-icon item-start large *ngIf="i <= hiking.difficultyRating" name="star"></ion-icon>
+                    <ion-icon item-start large *ngIf="i > hiking.difficultyRating" name="star-outline"></ion-icon>
+                </span>
+            </ion-label>
+        </ion-item>
 
-    <ion-img [src]="'http://www.optimisatrice.fr/wp-content/uploads/2018/07/le-canyon-de-la-riviere-blyde-en-afrique-du-sud.jpg'" [alt]="'hiking-img'"></ion-img>
-    <ion-title>{{hiking.title}}</ion-title>
+        <ion-item class="Address" lines="none">
+            <ion-icon name="pin" item-start large></ion-icon>
+            <p>{{hiking.address}}</p>
+        </ion-item>
 
-
-    <ion-text>
-        "address": {{hiking.address}},<br/>
-        "description": {{hiking.description}},<br/>
-        "difficultyRating": {{hiking.difficultyRating}},<br/>
-        "duration": {{hiking.duration}},<br/>
-        "lengthMeters": {{hiking.lengthMeters}},<br/>
-        "idCreator": {{hiking.idCreator}}<br/>
-    </ion-text>
-    <ion-button (click)='setHikingInProgess()'>Start</ion-button>
-    <app-leaflet-map [pageName]="'detail'" [hiking]="hiking"></app-leaflet-map>
-    <app-list-step [hiking]="hiking"></app-list-step>
+        <ion-item-group class="DurationAndMeters">
+            <ion-item lines="none">
+                <ion-icon name="stopwatch" item-start large></ion-icon>
+                <p>{{ (hiking.duration <= 60 ) ? minutes : ((hiking.duration-(hiking.duration%60))/60) + ' : ' + (hiking.duration%60)}} </p>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-icon name="walk" item-start large></ion-icon>
+                <p>{{hiking.lengthMeters}} meters</p>
+            </ion-item>
+        </ion-item-group>
+        
+        <ion-item class="Description" lines="none">
+            <ion-text>
+                {{hiking.description}}
+            </ion-text>
+        </ion-item>
+        <!-- Partie gestion du button -->
+        <ion-button *ngIf= "status" (click)='setHikingInProgess()' class="Start">
+            <ion-icon name="play"></ion-icon>
+            Start      
+        </ion-button>
+        <ion-button *ngIf= "!status" (click)='finishHiking()' class="Stop">
+            <ion-icon name="square"></ion-icon>
+            Stop      
+        </ion-button>
+    </div>
+    <!-- Steps -->
+    <ion-card>
+        <app-leaflet-map [pageName]="'detail'" [hiking]="hiking"></app-leaflet-map>
+        <ion-card-content class="Steps">
+            <app-list-step [hiking]="hiking"></app-list-step>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
 
+<app-timer></app-timer>
 <app-hiking-status-bar [pageName]="'detail'"></app-hiking-status-bar>

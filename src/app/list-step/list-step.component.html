@@ -1,10 +1,6 @@
-<ion-list>
-  <ion-list-header>
-    <ion-title>Steps</ion-title>
-  </ion-list-header>
-  <ion-item *ngFor="let step of hiking.steps">
-      <ion-label>{{step.id}}</ion-label>
-      <ion-label>{{step.latitude}}</ion-label>
-      <ion-label>{{step.longitude}}</ion-label>
-  </ion-item>
-</ion-list>
+
+<h3><ion-icon name="locate"></ion-icon> Steps</h3>
+<ion-item lines="none" class="Step" *ngFor="let step of hiking.steps">
+  <ion-label>Step n°{{ step.id + 1 }}</ion-label>
+  <ion-label>A Step name</ion-label>
+</ion-item>

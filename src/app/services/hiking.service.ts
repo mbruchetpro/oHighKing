@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { IHiking } from '../home/home.definition';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject, BehaviorSubject } from 'rxjs';
+import { TimerService } from './timer/timer.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HikingService {
   hikingList: IHiking[];
+  statusHiking: BehaviorSubject<boolean>;
 
-  constructor() {
+  constructor(private timerService: TimerService) {
     this.hikingList = [
       {
         id: 'ldejfoej',
@@ -17,7 +19,7 @@ export class HikingService {
         // tslint:disable-next-line:max-line-length
         description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
         difficultyRating: 4,
-        duration: 3,
+        duration: 275,
         lengthMeters: 10,
         steps: [
           {
@@ -69,8 +71,11 @@ export class HikingService {
         picture: "puy-de-la-vache.jpg"
       },
     ];
+    console.log("Moi le service est la ")
+    this.statusHiking = new BehaviorSubject(this.getHikingInProgress() !== undefined);
+    this.statusHiking.subscribe( sub =>  console.log( "SERVIIIIIIIIIICE " , sub));
   }
-
+  
   getHiking(id: string): Observable<IHiking> {
     const hiking = this.hikingList.find(hike => hike.id === id);
     return of(hiking);
@@ -78,5 +83,29 @@ export class HikingService {
 
   getHikings(): Observable<IHiking[]> {
     return of(this.hikingList);
+  }
+
+  setHikingInProgess(hiking: IHiking) {
+    if (this.getHikingInProgress) {
+      this.finishHiking();
+    }
+    localStorage.setItem('ohighking_hiking-in-progress', JSON.stringify(hiking));
+    this.statusHiking.next(false);
+    this.timerService.runTimer();
+  }
+
+  isHikingInProgress() {
+    return this.getHikingInProgress() !== undefined && this.getHikingInProgress() !== null;
+  }
+
+  getHikingInProgress() {
+    const hikingInProgess: IHiking = JSON.parse(localStorage.getItem('ohighking_hiking-in-progress'));
+    return hikingInProgess;
+  }
+
+  finishHiking() {
+    localStorage.removeItem('ohighking_hiking-in-progress');
+    this.statusHiking.next(true);
+    this.timerService.stopTimer();
   }
 }
