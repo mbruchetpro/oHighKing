@@ -8,7 +8,7 @@ import { TimerService } from './timer/timer.service';
 })
 export class HikingService {
   hikingList: IHiking[];
-  statusHiking: Subject<boolean>;
+  statusHiking: BehaviorSubject<boolean>;
 
   constructor(private timerService: TimerService) {
     this.hikingList = [
@@ -71,7 +71,7 @@ export class HikingService {
         picture: "puy-de-la-vache.jpg"
       },
     ];
-    
+    console.log("Moi le service est la ")
     this.statusHiking = new BehaviorSubject(this.getHikingInProgress() !== undefined);
     this.statusHiking.subscribe( sub =>  console.log( "SERVIIIIIIIIIICE " , sub));
   }

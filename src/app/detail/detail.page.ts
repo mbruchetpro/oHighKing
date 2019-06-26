@@ -48,9 +48,4 @@ export class DetailPage implements OnInit {
   finishHiking() {
     this.hikingService.finishHiking();
   }
-
-  getHikingInProgress() : IHiking {
-    return this.hikingService.getHikingInProgress();
-  }
-  
 }

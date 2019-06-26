@@ -6,12 +6,12 @@ import { Subject, BehaviorSubject } from 'rxjs';
 })
 export class TimerService {
   // timer
-  hours: Subject<number>;
-  minutes: Subject<number>;
-  seconds: Subject<number>;
+  hours: BehaviorSubject<number>;
+  minutes: BehaviorSubject<number>;
+  seconds: BehaviorSubject<number>;
 
   time: number;
-  interval: any;
+  interval: NodeJS.Timeout;
 
   constructor() { 
     this.time = localStorage.getItem('ohighking_timer-in-progress') ? parseInt(localStorage.getItem('ohighking_timer-in-progress')) : 0;
@@ -35,6 +35,7 @@ export class TimerService {
   }
 
   public stopTimer() : void {
+    console.log("STOOOOOOOP");
     clearInterval(this.interval);
     localStorage.removeItem('ohighking_timer-in-progress');
     this.time = 0;

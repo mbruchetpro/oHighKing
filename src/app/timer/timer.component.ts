@@ -8,19 +8,17 @@ import { TimerService } from '../services/timer/timer.service';
   styleUrls: ['./timer.component.scss'],
 })
 export class TimerComponent implements OnInit {
-  @Input() pageName: string;
   hours: number;
   minutes: number;
   seconds: number;
 
-  constructor( private hikingService: HikingService, private timerService :TimerService) { }
+  constructor( private hikingService: HikingService, private timerService : TimerService) { }
 
   ngOnInit() {
     console.log("timerComponentInit");    
     this.timerService.hours.subscribe(h => this.hours = h);
     this.timerService.minutes.subscribe(m => this.minutes = m);
     this.timerService.seconds.subscribe(s => this.seconds = s);
-    console.log(this.hours, this.minutes, this.seconds);
   }
 
   isHikingInProgress() {

@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TimerComponent } from './timer.component';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-import { HikingService } from '../services/hiking.service';
-import { TimerService } from '../services/timer/timer.service';
 
 @NgModule({
   declarations: [
@@ -16,8 +14,6 @@ import { TimerService } from '../services/timer/timer.service';
     RouterModule,
   ],
   providers: [
-    HikingService,
-    TimerService
   ],
   exports: [
     TimerComponent,
