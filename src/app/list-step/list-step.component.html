@@ -4,7 +4,9 @@
   </ion-list-header>
   <ion-item *ngFor="let step of hiking.steps">
       <ion-label>{{step.id}}</ion-label>
-      <ion-label>{{step.latitude}}</ion-label>
-      <ion-label>{{step.longitude}}</ion-label>
+      <ion-label>{{step.geolocation.latitude | number : '1.0-3'}}</ion-label>
+      <ion-label>{{step.geolocation.longitude | number : '1.0-3'}}</ion-label>
+      <ion-icon *ngIf="step.validate" name="checkmark-circle"></ion-icon>
+      <ion-icon *ngIf="!step.validate" name="close-circle"></ion-icon>
   </ion-item>
 </ion-list>
