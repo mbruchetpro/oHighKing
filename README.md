@@ -1,11 +1,17 @@
 # oHighKing
 
+Par BRUCHET Maxime et REMOND Théo
+
 ## Comment installer oHighKing pour le développement : 
     - git clone https://github.com/mbruchetpro/oHighKing.git
     - cd oHighKing
     - npm i || yarn
     
     - ionic serve --devapp
+
+# Test : 
+    - unitaire : npm test
+    - fonctionnel : yarn run e2e 
 
 ## Réalisé :
     - Page Connexion - Authentification
@@ -24,8 +30,10 @@
     - Tests unitaires (Hikings service)
     
 ## Pas réalisé :
-    - Affichage des randonnées hors-ligne (-> erreur)
+    - Affichage des randonnées hors-ligne (-> erreur).
     - Tests fonctionnels avec géolocalisation (on a pas reussi à mock/fake la position GPS).
+    - Commentaires.
+    - Tests fonctionnels pour des scénarios hors ligne.
     
 ## Lancer l'application sur browser :
     (necessite cordova)

@@ -1,8 +1,11 @@
 <ion-content>
-    <div *ngIf="!chargement">
+    <div class="hike" *ngIf="!chargement">
         <ion-card class="Map">
-            <app-leaflet-map [pageName]="'hiking'" [hiking]="hiking" [currentPosition]="currentPosition"></app-leaflet-map>
+            <app-leaflet-map class="map-content" [pageName]="'hiking'" [hiking]="hiking" [currentPosition]="currentPosition"></app-leaflet-map>
         </ion-card>
+        <div>
+            <ion-title class="timerInProgress ion-text-center"> {{ hours.toString().length === 1 ? 0 : "" }}{{hours}} : {{ minutes.toString().length === 1 ? 0 : "" }}{{ minutes }} : {{ seconds.toString().length === 1 ? 0 : "" }}{{ seconds }}</ion-title>
+        </div>
         <ion-card class="List">
             <app-list-step [hiking]="hiking"></app-list-step>
         </ion-card>
@@ -10,6 +13,14 @@
             <ion-icon name="square"></ion-icon>
             Stop
         </ion-button>
+        <div class="done">
+            <ion-title class="endText" *ngIf="status">
+                The hicking is done. 
+            </ion-title>
+        </div>
+        <div class="position">
+            {{currentPosition.longitude}}{{currentPosition.latitude}}
+        </div>
     </div>
     <div *ngIf="chargement" id="chargement">
         <ion-spinner name="crescent"></ion-spinner>

@@ -7,6 +7,7 @@ import { LoginService } from '../services/login.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import {IHiking} from '../models/hiking.definitions';
 import {IGeolocation} from '../models/geolocation.definitions';
+import { TimerService } from '../services/timer/timer.service';
 
 @Component({
   selector: 'app-hiking',
@@ -21,12 +22,19 @@ export class HikingPage implements OnInit {
   currentPosition: IGeolocation;
   chargement: boolean;
 
+  hours: number;
+  minutes: number;
+  seconds: number;
+
+  status: boolean;
+
   constructor(
       private route: ActivatedRoute,
       private router: Router,
       private hikingService: HikingService,
       private loginService: LoginService,
-      private geolocation: Geolocation
+      private geolocation: Geolocation,
+      private timerService: TimerService
   ) {
     this.chargement = true;
     this.currentPosition = {
@@ -48,12 +56,26 @@ export class HikingPage implements OnInit {
       this.currentPosition.longitude = location.coords.longitude;
       this.chargement = false;
     });
+    let paramId;
+    this.route.paramMap.pipe(
+        switchMap((params: ParamMap ) => {
+            paramId = params.get('id');
+            return this.hikingService.getHiking(params.get('id'));
+        })
+      )
+    .subscribe((hiking) => this.hiking = hiking);
+    
+    this.timerService.hours.subscribe(h => this.hours = h);
+    this.timerService.minutes.subscribe(m => this.minutes = m);
+    this.timerService.seconds.subscribe(s => this.seconds = s);
 
     if (this.allStepsValid()) { this.finishHiking(); }
 
     this.route.paramMap.pipe(
         switchMap((params: ParamMap ) => this.hikingService.getHiking(params.get('id')))
     ).subscribe((hiking) => this.hiking = hiking);
+    this.hikingService.statusHiking.subscribe( (sub) => this.status = sub);
+
   }
 
   finishHiking() {

@@ -25,6 +25,7 @@ export class LoginPage implements OnInit {
   }
 
   async _handleLogin(login: NgForm) {
+    // Value of login :
     this.username = login.value.username;
     this.password = login.value.password;
 

@@ -1861,7 +1861,7 @@ copy-webpack-plugin@4.6.0:
     p-limit "^1.0.0"
     serialize-javascript "^1.4.0"
 
-cordova-android@^8.0.0:
+cordova-android@8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/cordova-android/-/cordova-android-8.0.0.tgz#1fbe05a914731df619522b9385d4d1b183c36bdb"
   integrity sha512-Ipv8HbVJpxEyYFSFLTEOaLRp0yxBtJVNbgSuDEB4naa34FzQaRWSNiiMcPJnO+x3hRXNt7pcwa46hARNzhn7+w==
