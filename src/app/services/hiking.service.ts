@@ -24,22 +24,31 @@ export class HikingService {
         steps: [
           {
             id: 0,
-            longitude: 3.086948,
-            latitude: 45.77996
+            geolocation: {
+              longitude: 3.086948,
+              latitude: 45.77996,
+            },
+            validate: false
           },
           {
             id: 1,
-            longitude: 3.021607,
-            latitude: 45.781336
+            geolocation: {
+              longitude: 3.021607,
+              latitude: 45.781336,
+            },
+            validate: false
           },
           {
             id: 2,
-            longitude: 2.963762,
-            latitude: 45.771927
+            geolocation: {
+              longitude: 2.963762,
+              latitude: 45.771927,
+            },
+            validate: false
           }
         ], // Todo : Mettre interface Step
         idCreator: 'ofjof',
-        picture: "puy-de-dome.jpg",
+        picture: 'puy-de-dome.jpg',
       },
       {
         id: 'deede',
@@ -53,22 +62,31 @@ export class HikingService {
         steps: [
           {
             id: 0,
-            longitude: 3.087081,
-            latitude: 45.746768
+            geolocation : {
+              longitude: 3.087081,
+              latitude: 45.746768,
+            },
+            validate: false
           },
           {
             id: 1,
-            longitude: 3.0043,
-            latitude: 45.7039
+            geolocation: {
+              longitude: 3.0043,
+              latitude: 45.7039,
+            },
+            validate: false
           },
           {
             id: 2,
-            longitude: 2.962887,
-            latitude: 45.701996
+            geolocation: {
+              longitude: 2.962887,
+              latitude: 45.701996,
+            },
+            validate: false
           },
         ], // Todo : Mettre interface Step
         idCreator: 'ofjof',
-        picture: "puy-de-la-vache.jpg"
+        picture: 'puy-de-la-vache.jpg'
       },
     ];
     console.log("Moi le service est la ")

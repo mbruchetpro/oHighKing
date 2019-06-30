@@ -1,14 +1,19 @@
 <ion-content>
-    <ion-card class="Map">
-        <app-leaflet-map [pageName]="'hiking'" [hiking]="hiking"></app-leaflet-map>
-    </ion-card>
-    <ion-card class="List">
-        <app-list-step [hiking]="hiking"></app-list-step>
-    </ion-card>
-    <ion-button color="danger" (click)='finishHiking()' class="Stop">
-        <ion-icon name="square"></ion-icon>
-        Stop
-    </ion-button>
+    <div *ngIf="!chargement">
+        <ion-card class="Map">
+            <app-leaflet-map [pageName]="'hiking'" [hiking]="hiking" [currentPosition]="currentPosition"></app-leaflet-map>
+        </ion-card>
+        <ion-card class="List">
+            <app-list-step [hiking]="hiking"></app-list-step>
+        </ion-card>
+        <ion-button color="danger" (click)='finishHiking()' class="Stop">
+            <ion-icon name="square"></ion-icon>
+            Stop
+        </ion-button>
+    </div>
+    <div *ngIf="chargement" id="chargement">
+        <ion-spinner name="crescent"></ion-spinner>
+        <ion-text class="ion-text-center">⛰ Récupération des données de géolocalisation. Merci de patienter ... </ion-text>
+    </div>
 </ion-content>
-
 <app-hiking-status-bar [pageName]="'hiking'"></app-hiking-status-bar>

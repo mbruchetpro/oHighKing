@@ -13,6 +13,11 @@ export interface IHiking {
 
 export interface IStep {
   id: number;
-  latitude: number;
+  validate: boolean;
+  geolocation: IGeolocation;
+}
+
+export interface IGeolocation {
   longitude: number;
+  latitude: number;
 }

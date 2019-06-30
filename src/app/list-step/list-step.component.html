@@ -1,6 +1,13 @@
-
-<h3><ion-icon name="locate"></ion-icon> Steps</h3>
-<ion-item lines="none" class="Step" *ngFor="let step of hiking.steps">
-  <ion-label>Step n°{{ step.id + 1 }}</ion-label>
-  <ion-label>A Step name</ion-label>
-</ion-item>
+<ion-list>
+  <ion-list-header>
+    <h3><ion-icon name="locate"></ion-icon> Steps</h3>
+  </ion-list-header>
+  <ion-item *ngFor="let step of hiking.steps">
+      <ion-label>Step n°{{ step.id + 1 }}</ion-label>
+      <ion-label>A Step name</ion-label>
+      <ion-label>{{step.geolocation.latitude | number : '1.0-2'}}</ion-label>
+      <ion-label>{{step.geolocation.longitude | number : '1.0-2'}}</ion-label>
+      <ion-icon *ngIf="step.validate" name="checkmark-circle"></ion-icon>
+      <ion-icon *ngIf="!step.validate" name="close-circle"></ion-icon>
+  </ion-item>
+</ion-list>
