@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { HikingService } from '../services/hiking.service';
+import { HikingService } from '../services/hiking/hiking.service';
 import { LoginService } from '../services/login.service';
 import { IUser } from '../models/user.definitions';
 import { IHiking } from '../models/hiking.definitions';
@@ -12,7 +12,8 @@ import { IHiking } from '../models/hiking.definitions';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
-
+  idHiking: string;
+  hikings: IHiking[];
   hiking: IHiking;
   user: IUser;
   status: boolean;

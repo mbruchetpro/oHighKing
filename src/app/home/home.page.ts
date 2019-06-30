@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { IUser } from '../models/user.definitions';
 import { Router } from '@angular/router';
-import {HikingService} from '../services/hiking.service';
-import {IHiking} from '../models/hiking.definitions';
+import { HikingService } from '../services/hiking/hiking.service';
+import { IHiking } from '../models/hiking.definitions';
 
 @Component({
   selector: 'app-home',

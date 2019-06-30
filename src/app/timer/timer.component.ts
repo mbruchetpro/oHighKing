@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HikingService } from '../services/hiking.service';
+import { HikingService } from '../services/hiking/hiking.service';
 import { TimerService } from '../services/timer/timer.service';
 
 @Component({
