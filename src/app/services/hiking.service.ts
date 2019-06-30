@@ -89,11 +89,11 @@ export class HikingService {
         picture: 'puy-de-la-vache.jpg'
       },
     ];
-    console.log("Moi le service est la ")
+    console.log('Moi le service est la ');
     this.statusHiking = new BehaviorSubject(this.getHikingInProgress() !== undefined);
-    this.statusHiking.subscribe( sub =>  console.log( "SERVIIIIIIIIIICE " , sub));
+    this.statusHiking.subscribe( sub =>  console.log( 'SERVIIIIIIIIIICE ' , sub));
   }
-  
+
   getHiking(id: string): Observable<IHiking> {
     const hiking = this.hikingList.find(hike => hike.id === id);
     return of(hiking);

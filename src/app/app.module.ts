@@ -25,7 +25,7 @@ import { TimerService } from './services/timer/timer.service';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     HTTP,
-    Geolocation
+    Geolocation,
     TimerService
   ],
   bootstrap: [AppComponent]

@@ -24,7 +24,7 @@ export class DetailPage implements OnInit {
     private loginService: LoginService,
   ) {}
 
-  ngOnInit() {    
+  ngOnInit() {
     this.loginService.checkUser().subscribe((result: IUser) => this.user = result);
 
     if (!this.user) {
@@ -33,9 +33,9 @@ export class DetailPage implements OnInit {
 
     this.hikingService.statusHiking.subscribe( (sub) => {
       this.status = sub;
-      console.log("detail sub --> ", sub);
+      console.log('detail sub --> ', sub);
     });
-  
+
     this.route.paramMap.pipe(
       switchMap((params: ParamMap ) => this.hikingService.getHiking(params.get('id')))
     ).subscribe((hiking) => this.hiking = hiking);
@@ -44,7 +44,7 @@ export class DetailPage implements OnInit {
   setHikingInProgess() {
     this.hikingService.setHikingInProgess(this.hiking);
   }
-  
+
   finishHiking() {
     this.hikingService.finishHiking();
   }

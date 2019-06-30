@@ -12,10 +12,10 @@ export class TimerComponent implements OnInit {
   minutes: number;
   seconds: number;
 
-  constructor( private hikingService: HikingService, private timerService : TimerService) { }
+  constructor( private hikingService: HikingService, private timerService: TimerService) { }
 
   ngOnInit() {
-    console.log("timerComponentInit");    
+    console.log('timerComponentInit');
     this.timerService.hours.subscribe(h => this.hours = h);
     this.timerService.minutes.subscribe(m => this.minutes = m);
     this.timerService.seconds.subscribe(s => this.seconds = s);

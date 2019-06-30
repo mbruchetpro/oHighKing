@@ -36,7 +36,7 @@ export class LeafletMapComponent implements OnInit {
       show: false
     }).addTo(map);
     if (this.currentPosition !== undefined) {
-      this.distanceToNextStep = this.calculerDistance(this.currentPosition, this.getNextStep().geolocation)
+      this.distanceToNextStep = this.calculerDistance(this.currentPosition, this.getNextStep().geolocation);
       // @ts-ignore
       L.marker([this.currentPosition.latitude, this.currentPosition.longitude]).addTo(map);
       if (this.distanceToNextStep <= 10) {
