@@ -32,10 +32,7 @@ export class DetailPage implements OnInit {
       this.router.navigate(['/login']);
     }
 
-    this.hikingService.statusHiking.subscribe( (sub) => {
-      this.status = sub;
-      console.log('detail sub --> ', sub);
-    });
+    this.hikingService.statusHiking.subscribe( (sub) => this.status = sub);
 
     this.route.paramMap.pipe(
       switchMap((params: ParamMap ) => this.hikingService.getHiking(params.get('id')))
@@ -44,8 +41,11 @@ export class DetailPage implements OnInit {
 
   setHikingInProgess() {
     this.hikingService.setHikingInProgess(this.hiking);
+    this.router.navigate(['/hiking/'+this.hiking.id]);
   }
-
+  getHike() {
+    return this.hiking.id;
+  }
   finishHiking() {
     this.hikingService.finishHiking();
   }

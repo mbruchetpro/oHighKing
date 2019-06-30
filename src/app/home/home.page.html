@@ -1,10 +1,10 @@
 <ion-content>
-    <ion-card *ngFor="let hiking of hikingList" [routerLink]="['/detail', hiking.id]">
+    <ion-card class="Card" *ngFor="let hiking of hikingList" [routerLink]="['/detail', hiking.id]">
         <ion-img [src]="'/assets/icon/' + hiking.picture" [alt]="'hiking-img'"></ion-img>
         
         <ion-card-header>
             <ion-card-subtitle>Hiking</ion-card-subtitle>
-            <ion-card-title>{{hiking.title}}</ion-card-title>
+            <ion-card-title class="titleHiking">{{hiking.title}}</ion-card-title>
             <ion-card-subtitle>{{hiking.address}}</ion-card-subtitle>
         </ion-card-header>
 

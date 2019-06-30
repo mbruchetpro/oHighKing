@@ -17,7 +17,6 @@ export class TimerService {
     this.time = localStorage.getItem('ohighking_timer-in-progress') ?
         parseInt(localStorage.getItem('ohighking_timer-in-progress')) :
         0;
-    console.log('timer', this.time, localStorage.getItem('ohighking_timer-in-progress'));
     this.hours = new BehaviorSubject(0);
     this.minutes = new BehaviorSubject(0);
     this.seconds = new BehaviorSubject(0);
@@ -28,7 +27,6 @@ export class TimerService {
       localStorage.setItem('ohighking_timer-in-progress', this.time.toString());
       this.interval = setInterval(() => {
             this.time++;
-            console.log('seconds', this.time);
             this.seconds.next(this.time % 60);
             this.minutes.next(Math.round(this.time / 60));
             this.hours.next(Math.round(this.time / 3600));

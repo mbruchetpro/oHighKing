@@ -9,10 +9,10 @@
           </ion-button>
         </div>
         <div>
-          <ion-title class="ion-text-center"> {{ hours.toString().length === 1 ? 0 : "" }}{{hours}} : {{ minutes.toString().length === 1 ? 0 : "" }}{{ minutes }} : {{ seconds.toString().length === 1 ? 0 : "" }}{{ seconds }}</ion-title>
+          <ion-title class="timer ion-text-center"> {{ hours.toString().length === 1 ? 0 : "" }}{{hours}} : {{ minutes.toString().length === 1 ? 0 : "" }}{{ minutes }} : {{ seconds.toString().length === 1 ? 0 : "" }}{{ seconds }}</ion-title>
         </div>
         <div>
-          <ion-button *ngIf="isHikingInProgress()" [routerLink]="['/hiking', getHikingInProgress().id]" color="primary">
+          <ion-button class="see" *ngIf="isHikingInProgress()" [routerLink]="['/hiking', getHikingInProgress().id]" color="primary">
             <ion-icon name="eye"></ion-icon> Voir
           </ion-button>
         </div>

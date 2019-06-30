@@ -19,13 +19,13 @@
 
         <ion-item class="Address" lines="none">
             <ion-icon name="pin" item-start large></ion-icon>
-            <p>{{hiking.address}}</p>
+            <p class="address">{{hiking.address}}</p>
         </ion-item>
 
         <ion-item-group class="DurationAndMeters">
             <ion-item lines="none">
                 <ion-icon name="stopwatch" item-start large></ion-icon>
-                <p>{{ (hiking.duration <= 60 ) ? minutes : ((hiking.duration-(hiking.duration%60))/60) + ' : ' + (hiking.duration%60)}} </p>
+                <p class="time">{{ (hiking.duration <= 60 ) ? minutes : ((hiking.duration-(hiking.duration%60))/60) + ' : ' + (hiking.duration%60)}} </p>
             </ion-item>
             <ion-item lines="none">
                 <ion-icon name="walk" item-start large></ion-icon>
@@ -39,7 +39,7 @@
             </ion-text>
         </ion-item>
         <!-- Partie gestion du button -->
-        <ion-button *ngIf= "status" (click)='setHikingInProgess()' class="Start">
+        <ion-button *ngIf= "status" (click)='setHikingInProgess()'  class="Start">
             <ion-icon name="play"></ion-icon>
             Start
         </ion-button>
