@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HTTP } from '@ionic-native/http/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { TimerService } from './services/timer/timer.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,12 +20,14 @@ import { TimerService } from './services/timer/timer.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     HTTP,
+    HttpClientModule,
     Geolocation,
     TimerService
   ],

@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IGeolocation, IHiking, IStep} from '../home/home.definition';
+import { Component, Input, OnInit } from '@angular/core';
+import { IHiking } from '../models/hiking.definitions';
+import { IGeolocation } from '../models/geolocation.definitions';
+import { IStep } from '../models/step.definitions';
 
 @Component({
   selector: 'app-leaflet-map',

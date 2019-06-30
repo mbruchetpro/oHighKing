@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import { HikingService } from '../services/hiking.service';
-import {IGeolocation, IHiking} from '../home/home.definition';
 import { IUser } from '../models/user.definitions';
 import { LoginService } from '../services/login.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import {IHiking} from '../models/hiking.definitions';
+import {IGeolocation} from '../models/geolocation.definitions';
 
 @Component({
   selector: 'app-hiking',

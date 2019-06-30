@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,9 @@ export class TimerService {
   interval: NodeJS.Timeout;
 
   constructor() {
-    this.time = localStorage.getItem('ohighking_timer-in-progress') ? parseInt(localStorage.getItem('ohighking_timer-in-progress')) : 0;
+    this.time = localStorage.getItem('ohighking_timer-in-progress') ?
+        parseInt(localStorage.getItem('ohighking_timer-in-progress')) :
+        0;
     console.log('timer', this.time, localStorage.getItem('ohighking_timer-in-progress'));
     this.hours = new BehaviorSubject(0);
     this.minutes = new BehaviorSubject(0);

@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IHiking} from '../home/home.definition';
+import { Component, Input, OnInit } from '@angular/core';
+import { IHiking } from '../models/hiking.definitions';
 
 @Component({
   selector: 'app-list-step',

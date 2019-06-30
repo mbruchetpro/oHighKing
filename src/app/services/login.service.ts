@@ -7,7 +7,6 @@ import { of, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  private users: IUser[];
   private currentUser: IUser;
 
   constructor(private http: HttpClient) { }
