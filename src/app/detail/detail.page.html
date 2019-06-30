@@ -32,7 +32,7 @@
                 <p>{{hiking.lengthMeters}} meters</p>
             </ion-item>
         </ion-item-group>
-        
+
         <ion-item class="Description" lines="none">
             <ion-text>
                 {{hiking.description}}
@@ -41,11 +41,11 @@
         <!-- Partie gestion du button -->
         <ion-button *ngIf= "status" (click)='setHikingInProgess()' class="Start">
             <ion-icon name="play"></ion-icon>
-            Start      
+            Start
         </ion-button>
         <ion-button *ngIf= "!status" (click)='finishHiking()' class="Stop">
             <ion-icon name="square"></ion-icon>
-            Stop      
+            Stop
         </ion-button>
     </div>
     <!-- Steps -->

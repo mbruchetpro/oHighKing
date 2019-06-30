@@ -12,6 +12,7 @@ import { HTTP } from '@ionic-native/http/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { TimerService } from './services/timer/timer.service';
 import { HttpClientModule } from '@angular/common/http';
+import {HikingService} from './services/hiking/hiking.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     HTTP,
     HttpClientModule,
     Geolocation,
-    TimerService
+    TimerService,
+    HikingService
   ],
   bootstrap: [AppComponent]
 })
