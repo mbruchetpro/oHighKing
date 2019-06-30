@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IHiking } from './home.definition';
 import { LoginService } from '../services/login.service';
 import { IUser } from '../models/user.definitions';
 import { Router } from '@angular/router';
 import {HikingService} from '../services/hiking.service';
-import {Observable} from 'rxjs';
+import {IHiking} from '../models/hiking.definitions';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +13,6 @@ import {Observable} from 'rxjs';
 export class HomePage implements OnInit {
   hikingList: IHiking[];
   user: IUser;
-  rate: [];
 
   constructor(private loginService: LoginService, private hikingService: HikingService, private router: Router) {}
 
@@ -23,6 +21,8 @@ export class HomePage implements OnInit {
     if (!this.user) {
       this.router.navigate(['/login']);
     }
-    this.hikingService.getHikings().subscribe((hikingList: IHiking[]) => this.hikingList = hikingList);
+    this.hikingService.getHikings().subscribe((data: any) => {
+      this.hikingList = data.hikings;
+    });
   }
 }

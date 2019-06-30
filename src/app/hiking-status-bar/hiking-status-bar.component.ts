@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IHiking} from '../home/home.definition';
 
 @Component({
   selector: 'app-hiking-status-bar',
