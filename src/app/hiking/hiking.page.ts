@@ -49,6 +49,8 @@ export class HikingPage implements OnInit {
       this.chargement = false;
     });
 
+    if (this.allStepsValid()) { this.finishHiking(); }
+
     this.route.paramMap.pipe(
         switchMap((params: ParamMap ) => this.hikingService.getHiking(params.get('id')))
     ).subscribe((hiking) => this.hiking = hiking);
@@ -56,6 +58,12 @@ export class HikingPage implements OnInit {
 
   finishHiking() {
     this.hikingService.finishHiking();
+  }
+
+  allStepsValid() {
+    let isFinish = false;
+    this.hiking.steps.map((step) => isFinish = step.validate);
+    return isFinish;
   }
 
 }
